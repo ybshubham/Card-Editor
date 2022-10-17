@@ -410,30 +410,60 @@ async function generateDomImage() {
     Math.floor(parseFloat(frontLayoutHeightRatio) * 300)
   );
 
-  await htmlToImage.toJpeg(frontNode);
-
   await htmlToImage
     .toJpeg(frontNode, {
       canvasWidth: Math.floor(parseFloat(frontLayoutWidthRatio) * 300),
       canvasHeight: Math.floor(parseFloat(frontLayoutHeightRatio) * 300),
     })
-    .then(function (dataUrl) {
+    .then(async function (dataUrl) {
       // const previewEl = document.getElementById("front-preview");
       // let img = new Image();
       // img.src = dataUrl;
       // img.style.width = "300px";
       // img.style.height = "400px";
       // previewEl.appendChild(img);
-      domImgFront.value = dataUrl;
-      download(dataUrl, "front.jpeg");
+      // domImgFront.value = dataUrl;
+      // download(dataUrl, "front.jpeg");
+
+      await htmlToImage
+        .toJpeg(frontNode, {
+          canvasWidth: Math.floor(parseFloat(frontLayoutWidthRatio) * 300),
+          canvasHeight: Math.floor(parseFloat(frontLayoutHeightRatio) * 300),
+        })
+        .then(async function (dataUrl) {
+          // const previewEl = document.getElementById("front-preview");
+          // let img = new Image();
+          // img.src = dataUrl;
+          // img.style.width = "300px";
+          // img.style.height = "400px";
+          // previewEl.appendChild(img);
+          // domImgFront.value = dataUrl;
+          // download(dataUrl, "front.jpeg");
+
+          await htmlToImage
+            .toJpeg(frontNode, {
+              canvasWidth: Math.floor(parseFloat(frontLayoutWidthRatio) * 300),
+              canvasHeight: Math.floor(
+                parseFloat(frontLayoutHeightRatio) * 300
+              ),
+            })
+            .then(function (dataUrl) {
+              // const previewEl = document.getElementById("front-preview");
+              // let img = new Image();
+              // img.src = dataUrl;
+              // img.style.width = "300px";
+              // img.style.height = "400px";
+              // previewEl.appendChild(img);
+              domImgFront.value = dataUrl;
+              download(dataUrl, "front.jpeg");
+            });
+        });
     })
     .catch(function (error) {
       console.error("oops, something went wrong!", error);
     });
 
   const backNode = document.getElementById("card-back-view");
-
-  await htmlToImage.toJpeg(backNode);
 
   await htmlToImage
     .toJpeg(backNode, {
