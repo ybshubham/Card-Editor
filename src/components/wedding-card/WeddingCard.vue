@@ -840,6 +840,24 @@ onMounted(() => {
   }
 }
 
+@media screen and (min-width: 480px) {
+  #ql-container.ql-bubble {
+    font-size: 0.4em !important;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  #ql-container.ql-bubble {
+    font-size: 0.6em !important;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  #ql-container.ql-bubble {
+    font-size: 0.8em !important;
+  }
+}
+
 .ql-bubble .ql-picker.ql-expanded .ql-picker-options {
   // #top
   // top: initial;
