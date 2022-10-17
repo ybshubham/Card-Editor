@@ -1,0 +1,84 @@
+// app global css in SCSS form
+@font-face{
+	font-family:Beausite_Fit; /* San Sarif Font */
+	src:url(./fonts/beausitefit-light.woff2) format("woff2"),
+	url(./fonts/beausitefit-light.woff) format("woff"),
+	url(./fonts/beausitefit-light.otf) format("opentype");
+	font-weight:normal;
+	font-style:normal
+}
+@font-face{
+	font-family:Beausite_Medium; /* San Sarif Font */
+	src:url(./fonts/beausitefit-medium.woff) format("woff"),
+	url(./fonts/beausitefit-medium.ttf) format("truetype");
+	font-weight:normal;
+	font-style:normal
+}
+@font-face{
+	font-family:CormorantLight;
+	src:url(./fonts/Cormorant-Light.woff2) format("woff2"),
+	url(./fonts/Cormorant-Light.woff) format("woff"),
+	url(./fonts/Cormorant-Light.otf) format("opentype");
+	font-weight:normal;
+	font-style:normal
+}
+@font-face{
+	font-family:CormorantRegular;
+	src:url(./fonts/Cormorant-Regular.woff2) format("woff2"),
+	url(./fonts/Cormorant-Regular.woff) format("woff"),
+	url(./fonts/Cormorant-Regular.otf) format("opentype");
+	font-weight:normal;
+	font-style:normal
+}
+@font-face{
+	font-family:CormorantMedium;
+	src:url(./fonts/Cormorant-Medium.woff2) format("woff2"),
+	url(./fonts/Cormorant-Medium.woff) format("woff"),
+	url(./fonts/Cormorant-Medium.otf) format("opentype");
+	font-weight:normal;
+	font-style:normal
+}
+@font-face{
+	font-family:CormorantSemiBold;
+	src:url(./fonts/Cormorant-SemiBold.woff2) format("woff2"),
+	url(./fonts/Cormorant-SemiBold.woff) format("woff"),
+	url(./fonts/Cormorant-SemiBold.otf) format("opentype");
+	font-weight:normal;
+	font-style:normal
+}
+
+// declare a class which applies it
+.beausiteLight {
+	font-family: 'Beausite_Fit', 'Roboto', 'Arial', 'Helvetica', sans-serif;
+	font-weight: normal;
+	font-style: normal; 
+}
+.beausiteMedium {
+	font-family: 'Beausite_Medium', 'Roboto', 'Arial', 'Helvetica', sans-serif;
+	font-weight: normal;
+	font-style: normal; 
+}
+.cormorantLight {
+	font-family: 'CormorantLight', 'Garamond', 'Times New Roman', serif;
+	font-weight: normal;
+	font-style: normal;
+}
+.cormorantRegular {
+	font-family: 'CormorantRegular', 'Garamond', 'Times New Roman', serif;
+	font-weight: normal;
+	font-style: normal;
+}
+.cormorantMedium {
+	font-family: 'CormorantMedium', 'Garamond', 'Times New Roman', serif;
+	font-weight: normal;
+	font-style: normal;
+}
+.cormorantSemiBold {
+	font-family: 'CormorantSemiBold', 'Garamond', 'Times New Roman', serif;
+	font-weight: normal;
+	font-style: normal;
+}
+.notify-grey {
+    background-color: #8b8b8b !important;
+    font-family:'Beausite_Fit', 'Roboto', 'Arial', 'Helvetica', sans-serif;
+}

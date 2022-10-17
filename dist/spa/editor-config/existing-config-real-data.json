@@ -1,0 +1,107 @@
+{
+  "shape_id": 1,
+  "product_design": [
+    {
+      "id": 1,
+      "db_id": 1,
+      "name": "front",
+      "layout": {
+        "id": 1,
+        "db_id": 2,
+        "bg_Color_id": 4,
+        "aspectRatio": "5/7",
+        "editable_text_configs": [
+          {
+            "id": 1,
+            "db_id": 8,
+            "html": "<p><strong class='ql-font-serif ql-size-large' style='color: rgb(0, 97, 0); font-family: Allison;'><em>May 28th, 1996</em></strong></p>"
+          }
+        ],
+        "img_configs": [
+          {
+            "id": 1,
+            "db_id": 9,
+            "category_id": 2251,
+            "image_id": 364206136,
+            "crop_box_data": {
+              "height": 416,
+              "left": 249.74834437086093,
+              "top": 32.79998779296875,
+              "width": 278.25165562913907
+            },
+            "img_crop_data": {
+              "height": 1008.8000000000001,
+              "rotate": 0,
+              "width": 674.7602649006623,
+              "x": 605.4397350993378,
+              "y": 79.53997039794922
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "db_id": 61,
+      "name": "back",
+      "layout": {
+        "id": 2,
+        "db_id": 66,
+        "bg_Color_id": 10,
+        "aspectRatio": "5/7",
+        "editable_text_configs": [
+          {
+            "id": 1,
+            "db_id": 67,
+            "html": "<p><br></p><p><strong class='ql-size-large' style='font-family: &quot;Kaushan Script&quot;; color: rgb(240, 102, 102);'>AllanAndToneyAreVeryPatient.com</strong></p>"
+          },
+          {
+            "id": 2,
+            "db_id": 68,
+            "html": "<p><em class='ql-font-serif' style='font-family: &quot;Rubik Moonrocks&quot;; color: rgb(255, 153, 0);''>Thank you for all your kind wonderful support !!</em></p><p><br></p><p><strong>AT &amp; T</strong></p>"
+          }
+        ],
+        "img_configs": [
+          {
+            "id": 1,
+            "db_id": 69,
+            "category_id": 2251,
+            "image_id": 364206136,
+            "crop_box_data": {
+              "height": 252.98823529411763,
+              "left": 95.26600379550581,
+              "top": 30.712413466287586,
+              "width": 341.3333333333333
+            },
+            "img_crop_data": {
+              "height": 613.4964705882353,
+              "rotate": 0,
+              "width": 827.7333333333333,
+              "x": 230.82005920410154,
+              "y": 74.4776026557474
+            }
+          },
+          {
+            "id": 2,
+            "db_id": 70,
+            "category_id": 2251,
+            "image_id": 364206136,
+            "crop_box_data": {
+              "height": 221.5672514619883,
+              "left": 186.66666666666669,
+              "top": 298.4327485380117,
+              "width": 341.3333333333333
+            },
+            "img_crop_data": {
+              "height": 537.3005847953216,
+              "rotate": 0,
+              "width": 827.7333333333333,
+              "x": 452.46666666666664,
+              "y": 723.6994152046784
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
