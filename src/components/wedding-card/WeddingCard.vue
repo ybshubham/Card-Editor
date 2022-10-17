@@ -47,7 +47,7 @@
       :toolbar="toolbarOptions"
       :style="[
         textConfig.style,
-        cardEditorStore.getIsMobileDevice ? 'font-size: 1.8vmin' : '',
+        cardEditorStore.getIsMobileDevice ? 'font-size: 0.4em' : 'font-size: 1em',
       ]"
       @ready="editorReadyHandler(textConfig)"
       @focus="editorFocusHandler(textConfig)"
