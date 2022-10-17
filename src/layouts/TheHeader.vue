@@ -410,6 +410,8 @@ async function generateDomImage() {
     Math.floor(parseFloat(frontLayoutHeightRatio) * 300)
   );
 
+  await htmlToImage.toJpeg(frontNode);
+
   await htmlToImage
     .toJpeg(frontNode, {
       canvasWidth: Math.floor(parseFloat(frontLayoutWidthRatio) * 300),
@@ -430,6 +432,9 @@ async function generateDomImage() {
     });
 
   const backNode = document.getElementById("card-back-view");
+
+  await htmlToImage.toJpeg(backNode);
+
   await htmlToImage
     .toJpeg(backNode, {
       canvasWidth: Math.floor(parseFloat(backLayoutWidthRatio) * 300),
