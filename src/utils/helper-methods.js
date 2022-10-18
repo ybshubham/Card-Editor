@@ -20,9 +20,13 @@ export const toDataURL = (url, callback) => {
   xhr.send();
 };
 
-// export const getImgSrc = (url) => {
-//   // return new URL(`/src/assets/images/${url}`, import.meta.url).href;
-//   console.log("img:", url);
-//   console.log("url:", new URL(`/images/${url}`, import.meta.url).href);
-//   return new URL(`/images/${url}`, import.meta.url).href;
-// };
+export const isSafari = () => {
+  var ua = navigator.userAgent.toLowerCase();
+  if (ua.indexOf("safari") != -1) {
+    if (ua.indexOf("chrome") > -1) {
+      return false;
+    }
+    return true;
+  }
+  return false;
+};
