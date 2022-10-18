@@ -484,7 +484,7 @@ async function generateCardBackView(
     });
 }
 
-async function generateCardBackViewForSafari() {
+async function generateCardBackViewForSafari(backLayoutWidthRatio, backLayoutHeightRatio) {
   const backNode = document.getElementById("card-back-view");
   await htmlToImage
     .toJpeg(backNode, {
