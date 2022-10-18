@@ -321,6 +321,7 @@ import { toPng, toJpeg, toBlob, toPixelData, toSvg } from "html-to-image";
 import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
 import { isSafari } from "src/utils/helper-methods";
+import download from "downloadjs"
 
 const $q = useQuasar();
 const { t } = useI18n();
@@ -443,6 +444,7 @@ async function generateCardFrontViewForSafari(
             })
             .then(function (dataUrl) {
               domImgFront.value = dataUrl;
+              download(dataUrl, "front.jpeg")
             });
         });
     });
@@ -461,6 +463,7 @@ async function generateCardFrontView(
     })
     .then(function (dataUrl) {
       domImgFront.value = dataUrl;
+      download(dataUrl, "front.jpeg")
     });
 }
 
@@ -477,6 +480,7 @@ async function generateCardBackView(
     })
     .then(function (dataUrl) {
       domImgBack.value = dataUrl;
+      download(dataUrl, "back.jpeg")
     });
 }
 
@@ -504,6 +508,7 @@ async function generateCardBackViewForSafari() {
             })
             .then(function (dataUrl) {
               domImgBack.value = dataUrl;
+              download(dataUrl, "back.jpeg")
             });
         });
     });
@@ -718,62 +723,62 @@ async function proceedClickHandler() {
   await generateDomImage();
 
   // creating response payload
-  const payload = createDesignEditorPayload();
+  // const payload = createDesignEditorPayload();
 
-  // calling create/update config api
-  const configResponse =
-    (await route.query.hasOwnProperty("cart_item_product_design_id")) &&
-    route.query.cart_item_product_design_id
-      ? updateConfig(payload)
-      : createConfig(payload);
+  // // calling create/update config api
+  // const configResponse =
+  //   (await route.query.hasOwnProperty("cart_item_product_design_id")) &&
+  //   route.query.cart_item_product_design_id
+  //     ? updateConfig(payload)
+  //     : createConfig(payload);
 
-  configResponse
-    .then((resp) => {
-      if (resp.data.status === 200) {
-        const { cart_id, cart_item_product_design_id } = resp.data.data;
-        uploadDesignImages(2, cart_id, cart_item_product_design_id)
-          .then((response) => {
-            if (response.data.status === 200) {
-              apiSettlementCleanup(
-                "success",
-                "positive",
-                t("apiResponseText.uploadSuccessText"),
-                2000
-              );
-            } else {
-              apiSettlementCleanup(
-                "error",
-                "negative",
-                t("apiResponseText.uploadErrorText"),
-                4000
-              );
-            }
-          })
-          .catch((err) => {
-            apiSettlementCleanup(
-              "error",
-              "negative",
-              t("apiResponseText.uploadErrorText"),
-              4000
-            );
-          });
-      } else {
-        apiSettlementCleanup(
-          "error",
-          "negative",
-          t("apiResponseText.uploadErrorText"),
-          4000
-        );
-      }
-    })
-    .catch((err) => {
-      apiSettlementCleanup(
-        "error",
-        "negative",
-        t("apiResponseText.uploadErrorText"),
-        3000
-      );
-    });
+  // configResponse
+  //   .then((resp) => {
+  //     if (resp.data.status === 200) {
+  //       const { cart_id, cart_item_product_design_id } = resp.data.data;
+  //       uploadDesignImages(2, cart_id, cart_item_product_design_id)
+  //         .then((response) => {
+  //           if (response.data.status === 200) {
+  //             apiSettlementCleanup(
+  //               "success",
+  //               "positive",
+  //               t("apiResponseText.uploadSuccessText"),
+  //               2000
+  //             );
+  //           } else {
+  //             apiSettlementCleanup(
+  //               "error",
+  //               "negative",
+  //               t("apiResponseText.uploadErrorText"),
+  //               4000
+  //             );
+  //           }
+  //         })
+  //         .catch((err) => {
+  //           apiSettlementCleanup(
+  //             "error",
+  //             "negative",
+  //             t("apiResponseText.uploadErrorText"),
+  //             4000
+  //           );
+  //         });
+  //     } else {
+  //       apiSettlementCleanup(
+  //         "error",
+  //         "negative",
+  //         t("apiResponseText.uploadErrorText"),
+  //         4000
+  //       );
+  //     }
+  //   })
+  //   .catch((err) => {
+  //     apiSettlementCleanup(
+  //       "error",
+  //       "negative",
+  //       t("apiResponseText.uploadErrorText"),
+  //       3000
+  //     );
+    // });
 }
 </script>
 
