@@ -47,7 +47,7 @@
       :toolbar="toolbarOptions"
       :style="[
         textConfig.style,
-        cardEditorStore.getIsMobileDevice ? 'font-size: 0.4em' : 'font-size: 1em',
+        cardEditorStore.getIsMobileDevice ? 'font-size: 1.8vmin' : '',
       ]"
       @ready="editorReadyHandler(textConfig)"
       @focus="editorFocusHandler(textConfig)"
@@ -80,7 +80,9 @@
         align-items: center;
       "
       class="img1-container"
-      @drop="dropHandler(imgConfig.id, imgConfig.db_id)"
+      @drop="
+        dropHandler(imgConfig.id, imgConfig.db_id, props.activeTab, imgConfig)
+      "
       @mouseenter.prevent="mouseEnterHandler(imgConfig.id)"
       @mouseleave.prevent="mouseLeaveHandler(imgConfig.id)"
       @click.stop="imgContainerClickHandler(imgConfig)"
@@ -198,7 +200,7 @@
       </template>
     </div>
 
-    <q-dialog v-model="showImgEditModal">
+    <q-dialog v-model="showImgEditModal" persistent>
       <q-card @contextmenu.prevent>
         <q-card-section class="row items-center">
           <div class="img-container">
@@ -221,7 +223,11 @@
             color="secondary"
             class="beausiteMedium"
             v-close-popup
-            @click="showImgEditModal = false"
+            @click="
+              showImgEditModal = false;
+              isCropModalLoadedViaImgDrop = false;
+            "
+            v-if="!isCropModalLoadedViaImgDrop"
           />
           <q-btn
             flat
@@ -233,7 +239,8 @@
               imgCropHandler(
                 cardEditorStore.getSelectedImages[activeTab][
                   currentActiveImgConfig
-                ]
+                ],
+                activeTab
               )
             "
           />
@@ -279,7 +286,8 @@
           :category="activeCategory"
           :img-config-id="currentActiveImgConfig"
           :img-config-db-id="currentActiveImgConfigDbId"
-          @image-click="showImgChangeModal = false"
+          @image-click="modalImageClickHandler"
+          @image-convert="imageBase64ConvertHandler"
         />
       </q-card>
     </q-dialog>
@@ -339,6 +347,20 @@
         </q-list>
       </q-card>
     </q-dialog>
+    <q-dialog
+      class="bg-transparent"
+      v-model="showLoaderDialog"
+      persistent
+      transition-show="scale"
+      transition-hide="scale"
+    >
+      <q-card>
+        <q-card-section class="flex flex-center">
+          {{ t("modalText.loaderModal.content") }}
+          <q-spinner-ios color="primary" class="q-ml-sm" size="2em" />
+        </q-card-section>
+      </q-card>
+    </q-dialog>
   </div>
 </template>
 <script setup>
@@ -383,13 +405,15 @@ let imgBorder = ref("none");
 let showImgChangeModal = ref(false);
 let showImgEditModal = ref(false);
 let showImgEditChangeModal = ref(false);
+let showLoaderDialog = ref(false);
 
 let cropper = ref({});
 let destination = ref({});
 let myImage = ref(null);
 let currentActiveImgConfig = ref(null);
+let currentActiveImgConfigObj = ref(null);
 let currentActiveImgConfigDbId = ref(null);
-let fontSize = ref( '1em' )
+let isCropModalLoadedViaImgDrop = ref(false);
 
 // mobile
 let activeCategory = ref([]);
@@ -474,7 +498,8 @@ function showImgLoader(activeTab, imgConfigId) {
     : true;
 }
 
-function dropHandler(imgConfigId, imgConfigDBId) {
+function dropHandler(imgConfigId, imgConfigDBId, activeTab, imgConfig) {
+  showLoaderDialog.value = true;
   imgBorder.value = "none";
 
   const draggedImgData = cardEditorStore.getDraggedImgData;
@@ -490,7 +515,7 @@ function dropHandler(imgConfigId, imgConfigDBId) {
     dbId: null,
     categoryId: null,
     imgContainerId: imgConfigId,
-    section: props.activeTab,
+    section: activeTab,
     img: "",
     croppedImg: "",
     originalImg: "",
@@ -511,15 +536,20 @@ function dropHandler(imgConfigId, imgConfigDBId) {
         dbId: imgConfigDBId,
         categoryId: draggedImgData.categoryId,
         imgContainerId: imgConfigId,
-        section: props.activeTab,
-        img: croppedMediumImg,
+        section: activeTab,
+        img: dataUrl1,
         croppedImg: "",
         originalImg: dataUrl2,
-        croppedOriginalImg: croppedOriginalImg,
+        croppedOriginalImg: "",
         cropBoxData: {},
         imgCropData: {},
       };
       cardEditorStore.updateCardImages(metadata2);
+
+      isCropModalLoadedViaImgDrop.value = true;
+      imgContainerClickHandler(imgConfig);
+      showLoaderDialog.value = false;
+      mouseLeaveHandler(imgConfig.id);
     });
   });
 }
@@ -596,12 +626,17 @@ async function setImgEditor(imgConfigId) {
 
 async function imgContainerClickHandler(imgConfig) {
   currentActiveImgConfig.value = imgConfig.id;
+  currentActiveImgConfigObj.value = imgConfig;
   currentActiveImgConfigDbId.value = imgConfig.db_id;
   if (cardEditorStore.getIsMobileDevice) {
     // Mobile device :
     showImages.value = false;
     if (isImgPresentWithinConfig(imgConfig.id)) {
-      showImgEditChangeModal.value = true;
+      if (!isCropModalLoadedViaImgDrop.value) {
+        showImgEditChangeModal.value = true;
+      } else {
+        showImgEditModal.value = true;
+      }
     } else {
       showImgChangeModal.value = true;
     }
@@ -613,7 +648,8 @@ async function imgContainerClickHandler(imgConfig) {
   }
 }
 
-function imgCropHandler(existingImgData) {
+function imgCropHandler(existingImgData, activeTab) {
+  isCropModalLoadedViaImgDrop.value = false;
   const canvas = cropper.value.getCroppedCanvas();
   destination.value = canvas.toDataURL("image/jpg", 1);
 
@@ -649,7 +685,7 @@ function imgCropHandler(existingImgData) {
           dbId: currentActiveImgConfigDbId.value,
           categoryId: existingImgData.categoryId,
           imgContainerId: currentActiveImgConfig.value,
-          section: props.activeTab,
+          section: activeTab,
           img: existingImgData.img,
           croppedImg: destination.value,
           originalImg: existingImgData.originalImg,
@@ -731,21 +767,16 @@ function editorFocusHandler(textConfig) {
   editorRef.editor.style["z-index"] = "1000";
 }
 
-const getFontSize = () => {
-  const scale = 1; //an arbitrary value to get the font to look right.
+function modalImageClickHandler() {
+  showLoaderDialog.value = true;
+}
 
-  const container = document.getElementsByClassName('card-container')[0];
-  const containerWidth = container.clientWidth;
-
-  const layoutObj = cardEditorStore.getCardEditorMetaData[
-    "productDesigns"
-  ][0].layouts.find((item) => item.id === cardEditorStore.getActiveFrontLayoutId);
-  let [widthRatio] = layoutObj.aspectRatio.split("/").map(parseFloat)
-
-  // the ratio is based off inches
-  const pxPerInch = 72;
-  const cardMaxWidth = widthRatio * pxPerInch;
-  return (containerWidth / cardMaxWidth) * scale;
+function imageBase64ConvertHandler() {
+  // start new modal for loading purpose
+  showLoaderDialog.value = false;
+  showImgChangeModal.value = false;
+  isCropModalLoadedViaImgDrop.value = true;
+  imgContainerClickHandler(currentActiveImgConfigObj.value);
 }
 
 onMounted(() => {
@@ -753,42 +784,34 @@ onMounted(() => {
     let style = document.createElement("style");
     style.innerHTML = `
     .ql-bubble .ql-picker.ql-font .ql-picker-label[data-value='${fontFamily.name}']::before,
-    .ql-bubble .ql-picker.ql-font .ql-picker-item[data-value='${fontFamily.name}']::before {
+    .ql-bubble .ql-picker.ql-font .ql-picker-item[data-value='${fontFamily.name}']::before { 
       content: '${fontFamily.name}' !important;
       font-family: ${fontFamily.name} !important;
       text-transform: capitalize;
     }`;
     document.getElementsByTagName("body")[0].appendChild(style);
-
-    fontSize.value = getFontSize()+'em';
-
-    window.addEventListener("resize", () => {
-      fontSize.value = getFontSize()+'em';
-    })
-
   });
 });
 </script>
 
 <style lang="scss">
-@media (max-width: 540px) {
+@media (max-width: 480px) {
   .card-container {
     // --r: 2/3;
     --r: v-bind("layout.aspectRatio");
     aspect-ratio: var(--r);
     // height: min(90vw, 90vh * (var(--r)));
-    width: 80vw;
+    width: 65vw;
     position: relative;
     background-color: v-bind("bgColor");
     filter: drop-shadow(0px 0px 3px rgb(83, 83, 83));
     border-radius: v-bind("shape.borderRadius");
-    /* transform: scale(1.4); */
+    transform: scale(1.4);
     // overflow: hidden;
     pointer-events: v-bind(pointerEventVal);
-    font-size: v-bind(fontSize);
   }
 }
-@media (min-width: 541px) {
+@media (min-width: 481px) {
   .card-container {
     // --r: 2/3;
     --r: v-bind("layout.aspectRatio");
@@ -803,7 +826,6 @@ onMounted(() => {
 
     // overflow: hidden;
     pointer-events: v-bind(pointerEventVal);
-    font-size: v-bind(fontSize);
   }
 }
 
@@ -865,28 +887,6 @@ onMounted(() => {
   .ql-tooltip {
     width: 33vw;
   }
-}
-
-/* @media (min-width: 480px) {
-  .ql-container.ql-bubble {
-    font-size: 0.4em !important;
-  }
-}
-
-@media (min-width: 600px) {
-  .ql-container.ql-bubble {
-    font-size: 0.6em !important;
-  }
-}
-
-@media (min-width: 720px) {
-  .ql-container.ql-bubble {
-    font-size: 0.8em !important;
-  }
-} */
-
-.ql-container.ql-bubble {
-  font-size: 1em;
 }
 
 .ql-bubble .ql-picker.ql-expanded .ql-picker-options {

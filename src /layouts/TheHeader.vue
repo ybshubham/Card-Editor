@@ -313,15 +313,12 @@
 <script setup>
 import axios from "axios";
 import { useQuasar } from "quasar";
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import { usecardEditorStore } from "src/stores/card-editor-store";
 import WeddingCard from "src/components/wedding-card/WeddingCard.vue";
-import * as htmlToImage from "html-to-image";
-import { toPng, toJpeg, toBlob, toPixelData, toSvg } from "html-to-image";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
-import { isSafari } from "src/utils/helper-methods";
-import download from "downloadjs"
+import html2canvas from "html2canvas";
 
 const $q = useQuasar();
 const { t } = useI18n();
@@ -334,6 +331,7 @@ const getActiveBgColor = cardEditorStore.getActiveBgColor;
 
 /* Get route object */
 const route = useRoute();
+const router = useRouter();
 
 // set default locale
 locale.value =
@@ -372,6 +370,12 @@ const activeShape = computed(() => {
   );
 });
 
+watch([domImgFront, domImgBack], ([newFront, newBack], [oldFront, oldBack]) => {
+  if (newFront && newBack) {
+    uploadCard();
+  }
+});
+
 /* methods */
 function switchTab(value) {
   cardEditorStore.changeTab(value);
@@ -382,10 +386,11 @@ function toggleDrawerHandler() {
 }
 
 function submitClickHandler() {
-  showSubmitModal.value = true;
+  router.push("test");
+  // showSubmitModal.value = true;
 }
 
-async function generateDomImage() {
+function generateDomImage() {
   const frontLayoutId = cardEditorStore.getActiveFrontLayoutId;
   const backLayoutId = cardEditorStore.getActiveBackLayoutId;
   const frontLayoutObj = cardEditorStore.getCardEditorMetaData[
@@ -400,118 +405,28 @@ async function generateDomImage() {
   let [backLayoutWidthRatio, backLayoutHeightRatio] =
     backLayoutObj.aspectRatio.split("/");
   // Generate image from card front view
-
-  if (isSafari()) {
-    await generateCardFrontViewForSafari(
-      frontLayoutWidthRatio,
-      frontLayoutHeightRatio
-    );
-    await generateCardBackViewForSafari(
-      backLayoutWidthRatio,
-      backLayoutHeightRatio
-    );
-  } else {
-    await generateCardFrontView(frontLayoutWidthRatio, frontLayoutHeightRatio);
-    await generateCardBackView(backLayoutWidthRatio, backLayoutHeightRatio);
-  }
+  generateCardFrontView(frontLayoutWidthRatio, frontLayoutHeightRatio);
+  generateCardBackView(backLayoutWidthRatio, backLayoutHeightRatio);
 }
-async function generateCardFrontViewForSafari(
-  frontLayoutWidthRatio,
-  frontLayoutHeightRatio
-) {
+
+function generateCardFrontView(frontLayoutWidthRatio, frontLayoutHeightRatio) {
   const frontNode = document.getElementById("card-front-view");
-  await htmlToImage
-    .toJpeg(frontNode, {
-      canvasWidth: Math.floor(parseFloat(frontLayoutWidthRatio) * 300),
-      canvasHeight: Math.floor(parseFloat(frontLayoutHeightRatio) * 300),
-      pixelRatio: 1,
-    })
-    .then(async function (dataUrl) {
-      await htmlToImage
-        .toJpeg(frontNode, {
-          canvasWidth: Math.floor(parseFloat(frontLayoutWidthRatio) * 300),
-          canvasHeight: Math.floor(parseFloat(frontLayoutHeightRatio) * 300),
-          pixelRatio: 1,
-        })
-        .then(async function (dataUrl) {
-          await htmlToImage
-            .toJpeg(frontNode, {
-              canvasWidth: Math.floor(parseFloat(frontLayoutWidthRatio) * 300),
-              canvasHeight: Math.floor(
-                parseFloat(frontLayoutHeightRatio) * 300
-              ),
-              pixelRatio: 1,
-            })
-            .then(function (dataUrl) {
-              domImgFront.value = dataUrl;
-              download(dataUrl, "front.jpeg")
-            });
-        });
-    });
+  html2canvas(frontNode, {
+    scale: 10,
+  }).then(function (canvas) {
+    const img = canvas.toDataURL("image/jpeg");
+    domImgFront.value = img;
+  });
 }
 
-async function generateCardFrontView(
-  frontLayoutWidthRatio,
-  frontLayoutHeightRatio
-) {
-  const frontNode = document.getElementById("card-front-view");
-  await htmlToImage
-    .toJpeg(frontNode, {
-      canvasWidth: Math.floor(parseFloat(frontLayoutWidthRatio) * 300),
-      canvasHeight: Math.floor(parseFloat(frontLayoutHeightRatio) * 300),
-      pixelRatio: 1,
-    })
-    .then(function (dataUrl) {
-      domImgFront.value = dataUrl;
-      download(dataUrl, "front.jpeg")
-    });
-}
-
-async function generateCardBackView(
-  backLayoutWidthRatio,
-  backLayoutHeightRatio
-) {
+function generateCardBackView(backLayoutWidthRatio, backLayoutHeightRatio) {
   const backNode = document.getElementById("card-back-view");
-  await htmlToImage
-    .toJpeg(backNode, {
-      canvasWidth: Math.floor(parseFloat(backLayoutWidthRatio) * 300),
-      canvasHeight: Math.floor(parseFloat(backLayoutHeightRatio) * 300),
-      pixelRatio: 1,
-    })
-    .then(function (dataUrl) {
-      domImgBack.value = dataUrl;
-      download(dataUrl, "back.jpeg")
-    });
-}
-
-async function generateCardBackViewForSafari(backLayoutWidthRatio, backLayoutHeightRatio) {
-  const backNode = document.getElementById("card-back-view");
-  await htmlToImage
-    .toJpeg(backNode, {
-      canvasWidth: Math.floor(parseFloat(backLayoutWidthRatio) * 300),
-      canvasHeight: Math.floor(parseFloat(backLayoutHeightRatio) * 300),
-      pixelRatio: 1,
-    })
-    .then(async function (dataUrl) {
-      htmlToImage
-        .toJpeg(backNode, {
-          canvasWidth: Math.floor(parseFloat(backLayoutWidthRatio) * 300),
-          canvasHeight: Math.floor(parseFloat(backLayoutHeightRatio) * 300),
-          pixelRatio: 1,
-        })
-        .then(function (dataUrl) {
-          htmlToImage
-            .toJpeg(backNode, {
-              canvasWidth: Math.floor(parseFloat(backLayoutWidthRatio) * 300),
-              canvasHeight: Math.floor(parseFloat(backLayoutHeightRatio) * 300),
-              pixelRatio: 1,
-            })
-            .then(function (dataUrl) {
-              domImgBack.value = dataUrl;
-              download(dataUrl, "back.jpeg")
-            });
-        });
-    });
+  html2canvas(backNode, {
+    scale: 10,
+  }).then(function (canvas) {
+    const img = canvas.toDataURL("image/jpeg");
+    domImgBack.value = img;
+  });
 }
 
 function previewImageClickHandler() {
@@ -718,67 +633,69 @@ function uploadClickHandler() {
   }
 }
 
-async function proceedClickHandler() {
+function proceedClickHandler() {
   isUploading.value = true;
-  await generateDomImage();
+  generateDomImage();
+}
 
+async function uploadCard() {
   // creating response payload
-  // const payload = createDesignEditorPayload();
+  const payload = createDesignEditorPayload();
 
-  // // calling create/update config api
-  // const configResponse =
-  //   (await route.query.hasOwnProperty("cart_item_product_design_id")) &&
-  //   route.query.cart_item_product_design_id
-  //     ? updateConfig(payload)
-  //     : createConfig(payload);
+  // calling create/update config api
+  const configResponse =
+    (await route.query.hasOwnProperty("cart_item_product_design_id")) &&
+    route.query.cart_item_product_design_id
+      ? updateConfig(payload)
+      : createConfig(payload);
 
-  // configResponse
-  //   .then((resp) => {
-  //     if (resp.data.status === 200) {
-  //       const { cart_id, cart_item_product_design_id } = resp.data.data;
-  //       uploadDesignImages(2, cart_id, cart_item_product_design_id)
-  //         .then((response) => {
-  //           if (response.data.status === 200) {
-  //             apiSettlementCleanup(
-  //               "success",
-  //               "positive",
-  //               t("apiResponseText.uploadSuccessText"),
-  //               2000
-  //             );
-  //           } else {
-  //             apiSettlementCleanup(
-  //               "error",
-  //               "negative",
-  //               t("apiResponseText.uploadErrorText"),
-  //               4000
-  //             );
-  //           }
-  //         })
-  //         .catch((err) => {
-  //           apiSettlementCleanup(
-  //             "error",
-  //             "negative",
-  //             t("apiResponseText.uploadErrorText"),
-  //             4000
-  //           );
-  //         });
-  //     } else {
-  //       apiSettlementCleanup(
-  //         "error",
-  //         "negative",
-  //         t("apiResponseText.uploadErrorText"),
-  //         4000
-  //       );
-  //     }
-  //   })
-  //   .catch((err) => {
-  //     apiSettlementCleanup(
-  //       "error",
-  //       "negative",
-  //       t("apiResponseText.uploadErrorText"),
-  //       3000
-  //     );
-    // });
+  configResponse
+    .then((resp) => {
+      if (resp.data.status === 200) {
+        const { cart_id, cart_item_product_design_id } = resp.data.data;
+        uploadDesignImages(2, cart_id, cart_item_product_design_id)
+          .then((response) => {
+            if (response.data.status === 200) {
+              apiSettlementCleanup(
+                "success",
+                "positive",
+                t("apiResponseText.uploadSuccessText"),
+                2000
+              );
+            } else {
+              apiSettlementCleanup(
+                "error",
+                "negative",
+                t("apiResponseText.uploadErrorText"),
+                4000
+              );
+            }
+          })
+          .catch((err) => {
+            apiSettlementCleanup(
+              "error",
+              "negative",
+              t("apiResponseText.uploadErrorText"),
+              4000
+            );
+          });
+      } else {
+        apiSettlementCleanup(
+          "error",
+          "negative",
+          t("apiResponseText.uploadErrorText"),
+          4000
+        );
+      }
+    })
+    .catch((err) => {
+      apiSettlementCleanup(
+        "error",
+        "negative",
+        t("apiResponseText.uploadErrorText"),
+        3000
+      );
+    });
 }
 </script>
 

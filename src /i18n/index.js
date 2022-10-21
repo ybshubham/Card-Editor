@@ -6,7 +6,7 @@ export default {
     colors: "Background Colors",
     shapes: "Shapes",
     layouts: "Card Designs",
-    preview: "Preview",
+    preview: "Review and Finalize",
     imgActionLabels: {
       selectImgText: "Select Image",
       selectCategoryText: "Select Category",
@@ -26,21 +26,35 @@ export default {
     },
     getStartedText: {
       welcomeText: "",
-      step1: "Welcome! Your greeting card can be customized as follows...",
+      step1: "Welcome! The following slides will guide you through the greeting card creation process.",
       step2:
-        "Select a card design by clicking the 'Card Designs' option from within the left-side menu. If the left-side menu is hidden, click on the menu icon at the top of the page to view it.",
+        "Select a card design through the 'Card Designs' menu option.",
+      step2_mobile:
+        "Select a card design through the 'Card Designs' menu option.",
       step3:
-        "Drag and drop images from the bottom image bar onto the blank image areas within your selected design. If you are using a mobile device, tap within the empty image area to select an image instead.",
+        "Drop images from the bottom image bar into the blank image areas to add them to your card.",
+      step3_mobile:
+        "Tap within an empty image area to select an image.",
       step4:
-        "Crop the selected image by clicking on the image within the design.",
+        "Crop the image by clicking on the image within the design.",
+      step4_mobile:
+        "Crop the image by tapping on the image within the design.",
       step5:
         "Click on the text to modify it. Space is limited, so be as precise as possible.",
+      step5_mobile:
+        "Tap the text to modify it. Space is limited, so be as precise as possible.",
       step6:
-        "If the design contains a solid color for the background (rather than an image), the background color can be changed through the 'Background Colors' option found within the left-side menu.",
+        "Solid background colors can be modified through the 'Background Colors' menu option.",
+      step6_mobile:
+        "Solid background colors can be modified through the 'Background Colors' menu option.",
       step7:
-        "If your greeting card has two sides, click on the 'Front' and 'Back' options found at the top of the page to design each side individually.",
+        "Click the 'Front' and 'Back' options, found at the top of the page, to customize both sides of your card.",
+      step7_mobile:
+        "Tap the 'Front' and 'Back' options, found at the top of the page, to customize both sides of your card.",
       step8:
-        "Once your design is complete, click the 'Submit' button to save your card.",
+        "Once your design is complete, click the 'Submit' button to review and finalize your card.",
+      step8_mobile:
+        "Once your design is complete, tap the 'Submit' button to review and finalize your card.",
     },
     apiResponseText: {
       uploadSuccessText: "Upload Success",
@@ -58,6 +72,9 @@ export default {
         editContent: "Tap to Crop the Image",
         changeLabel: "Swap Images",
         changeContent: "Tap to Swap Images",
+      },
+      loaderModal: {
+        content: "Please wait",
       },
     },
     validationText: {
@@ -124,6 +141,9 @@ export default {
         editContent: "Tippen Sie auf , um das Bild zuzuschneiden",
         changeLabel: "Bilder tauschen",
         changeContent: "Tippen Sie auf , um Bilder auszutauschen",
+      },
+      loaderModal: {
+        content: "Warten Sie mal",
       },
     },
     validationText: {
@@ -192,6 +212,9 @@ export default {
         changeLabel: "Intercambiar imágenes",
         changeContent: "Toque para intercambiar imágenes",
       },
+      loaderModal: {
+        content: "Espere por favor",
+      },
     },
     validationText: {
       cardValidationText:
@@ -258,6 +281,9 @@ export default {
         editContent: "Appuyez pour recadrer l'image",
         changeLabel: "Échanger des images",
         changeContent: "Appuyez pour échanger des images",
+      },
+      loaderModal: {
+        content: "S'il vous plaît, attendez",
       },
     },
     validationText: {
@@ -326,6 +352,9 @@ export default {
         changeLabel: "Scambia immagini",
         changeContent: "Tocca per scambiare immagini",
       },
+      loaderModal: {
+        content: "attendere prego",
+      },
     },
     validationText: {
       cardValidationText:
@@ -392,6 +421,9 @@ export default {
         changeLabel: "Trocar imagens",
         changeContent: "Toque para trocar imagens",
       },
+      loaderModal: {
+        content: "Por favor, espere",
+      },
     },
     validationText: {
       cardValidationText: "Adicione imagens a todos os contêineres de imagens.",
@@ -455,6 +487,9 @@ export default {
         editContent: "Tryck för att beskära bilden",
         changeLabel: "Byt bilder",
         changeContent: "Tryck för att byta bilder",
+      },
+      loaderModal: {
+        content: "Vänta",
       },
     },
     validationText: {
