@@ -131,7 +131,7 @@
               <q-item-section avatar>
                 <q-icon name="chevron_left"></q-icon>
               </q-item-section>
-              <q-item-section> {{ t("layouts") }} </q-item-section>
+              <q-item-section> {{ t("SelectA_"+cardEditorStore.getActiveTab+"_Design") }} </q-item-section>
             </q-item>
             <q-separator></q-separator>
             <q-item style="justify-content: center">

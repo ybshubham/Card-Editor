@@ -6,8 +6,7 @@
       color="primary"
       icon="arrow_back_ios"
       class="indicator-btn-left"
-      style="margin: 1%"
-      @click="previousLayoutHandler"
+      @click="nextLayoutClickHandler"
     />
     <WeddingCard
       id="idxpg-frnt"
@@ -42,8 +41,7 @@
       color="primary"
       icon="arrow_forward_ios"
       class="indicator-btn-right"
-      style="margin: 1%"
-      @click="nextLayoutHandler"
+      @click="nextLayoutClickHandler"
     />
   </q-page>
 </template>
@@ -79,33 +77,36 @@ const activeShape = computed(() => {
 });
 
 // methods
-function nextLayoutHandler() {
-  cardEditorStore.changeTab("back");
-}
-
-function previousLayoutHandler() {
-  cardEditorStore.changeTab("front");
+function nextLayoutClickHandler() {
+  if (cardEditorStore.getActiveTab === "front") {
+    cardEditorStore.changeTab("back");
+  } else {
+    cardEditorStore.changeTab("front");
+  }
 }
 </script>
 
 <style lang="scss">
 .indicator-btn-left {
   margin-right: 32px !important;
+  z-index:9999;
+
 }
 .indicator-btn-right {
   margin-left: 32px !important;
+  z-index:9999;
 }
 
 @media (max-width: 539px) {
   .indicator-btn-left {
     position: absolute;
-    bottom: 0px;
+    bottom: 10%;
     margin-right: 56px !important;
   }
 
   .indicator-btn-right {
     position: absolute;
-    bottom: 0px;
+    bottom: 10%;
     margin-left: 56px !important;
   }
 }

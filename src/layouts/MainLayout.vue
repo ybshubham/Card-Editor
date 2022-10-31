@@ -87,51 +87,137 @@
                 />
               </template>
               <q-carousel-slide :name="1" class="column no-wrap flex-center">
-                <q-icon name="emoji_people" color="primary" size="56px" />
+                <p>
+                  <img
+                    src="/images/help_step7.png"
+                    style="max-width: 100%; max-height: 200px"
+                  />
+                </p>
                 <div class="q-mt-md text-center beausiteLight text-body1">
                   {{ t("getStartedText.step1") }}
                 </div>
               </q-carousel-slide>
               <q-carousel-slide :name="2" class="column no-wrap flex-center">
-                <q-icon name="dashboard" color="primary" size="56px" />
+                <p>
+                  <img
+                    src="/images/help_step2.png"
+                    srcset="
+                      /images/help_step2.png    1x,
+                      /images/help_step2@2x.png 2x
+                    "
+                    style="max-width: 100%; max-height: 200px"
+                  />
+                </p>
                 <div class="q-mt-md text-center beausiteLight text-body1">
-                  {{ t("getStartedText.step2") }}
+                  {{
+                    cardEditorStore.getIsMobileDevice
+                      ? t("getStartedText.step2_mobile")
+                      : t("getStartedText.step2")
+                  }}
                 </div>
               </q-carousel-slide>
               <q-carousel-slide :name="3" class="column no-wrap flex-center">
-                <q-icon name="portrait" color="primary" size="56px" />
+                <p v-if="!cardEditorStore.getIsMobileDevice">
+                  <img
+                    src="/images/help_step3_.gif"
+                    style="max-width: 100%; max-height: 200px"
+                  />
+                </p>
+                <p v-if="cardEditorStore.getIsMobileDevice">
+                  <img
+                    src="/images/help_step3@2x.png"
+                    style="max-width: 100%; max-height: 200px"
+                  />
+                </p>
                 <div class="q-mt-md text-center beausiteLight text-body1">
-                  {{ t("getStartedText.step3") }}
+                  {{
+                    cardEditorStore.getIsMobileDevice
+                      ? t("getStartedText.step3_mobile")
+                      : t("getStartedText.step3")
+                  }}
                 </div>
               </q-carousel-slide>
               <q-carousel-slide :name="4" class="column no-wrap flex-center">
-                <q-icon name="crop" color="primary" size="56px" />
+                <p>
+                  <img
+                    src="/images/help_step4@2x.png"
+                    style="max-width: 100%; max-height: 200px"
+                  />
+                </p>
                 <div class="q-mt-md text-center beausiteLight text-body1">
-                  {{ t("getStartedText.step4") }}
+                  {{
+                    cardEditorStore.getIsMobileDevice
+                      ? t("getStartedText.step4_mobile")
+                      : t("getStartedText.step4")
+                  }}
                 </div>
               </q-carousel-slide>
               <q-carousel-slide :name="5" class="column no-wrap flex-center">
-                <q-icon name="text_format" color="primary" size="56px" />
+                <p>
+                  <img
+                    src="/images/help_step5.png"
+                    srcset="
+                      /images/help_step5.png    1x,
+                      /images/help_step5@2x.png 2x
+                    "
+                    style="max-width: 100%; max-height: 200px"
+                  />
+                </p>
                 <div class="q-mt-md text-center beausiteLight text-body1">
-                  {{ t("getStartedText.step5") }}
+                  {{
+                    cardEditorStore.getIsMobileDevice
+                      ? t("getStartedText.step5_mobile")
+                      : t("getStartedText.step5")
+                  }}
                 </div>
               </q-carousel-slide>
               <q-carousel-slide :name="6" class="column no-wrap flex-center">
-                <q-icon name="palette" color="primary" size="56px" />
+                <p>
+                  <img
+                    src="/images/help_step6.png"
+                    srcset="
+                      /images/help_step6.png    1x,
+                      /images/help_step6@2x.png 2x
+                    "
+                    style="max-width: 100%; max-height: 200px"
+                  />
+                </p>
                 <div class="q-mt-md text-center beausiteLight text-body1">
-                  {{ t("getStartedText.step6") }}
+                  {{
+                    cardEditorStore.getIsMobileDevice
+                      ? t("getStartedText.step6_mobile")
+                      : t("getStartedText.step6")
+                  }}
                 </div>
               </q-carousel-slide>
               <q-carousel-slide :name="7" class="column no-wrap flex-center">
-                <q-icon name="view_comfy_alt" color="primary" size="56px" />
+                <p>
+                  <img
+                    src="/images/help_step7.png"
+                    style="max-width: 100%; max-height: 200px"
+                  />
+                </p>
                 <div class="q-mt-md text-center beausiteLight text-body1">
-                  {{ t("getStartedText.step7") }}
+                  {{
+                    cardEditorStore.getIsMobileDevice
+                      ? t("getStartedText.step7_mobile")
+                      : t("getStartedText.step7")
+                  }}
                 </div>
               </q-carousel-slide>
               <q-carousel-slide :name="8" class="column no-wrap flex-center">
-                <q-icon name="outlined_flag" color="primary" size="56px" />
+                <p>
+                  <img
+                    src="/images/help_step8.png"
+                    style="max-width: 100%; max-height: 200px"
+                  />
+                </p>
                 <div class="q-mt-md text-center beausiteLight text-body1">
-                  {{ t("getStartedText.step8") }}
+                  {{
+                    cardEditorStore.getIsMobileDevice
+                      ? t("getStartedText.step8_mobile")
+                      : t("getStartedText.step8")
+                  }}
                 </div>
               </q-carousel-slide>
             </q-carousel>
@@ -222,16 +308,17 @@ function loadSavedCardEditor(editorData) {
     );
 
     /* set editable text data */
-    tab.layout.editable_text_configs.forEach((text_config) => {
-      const metadata = {
-        section: tab.name,
-        layoutId: tab.layout.id,
-        textConfigId: text_config.id,
-        html: text_config.html,
-        dbId: text_config.db_id,
-      };
-      cardEditorStore.updateTextFormattingData(metadata);
-    });
+    tab.layout.editable_text_configs &&
+      tab.layout.editable_text_configs.forEach((text_config) => {
+        const metadata = {
+          section: tab.name,
+          layoutId: tab.layout.id,
+          textConfigId: text_config.id,
+          html: text_config.html,
+          dbId: text_config.db_id,
+        };
+        cardEditorStore.updateTextFormattingData(metadata);
+      });
 
     /* set images */
     tab.layout.img_configs.forEach((img_config) => {

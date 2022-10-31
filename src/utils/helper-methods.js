@@ -19,14 +19,3 @@ export const toDataURL = (url, callback) => {
   xhr.responseType = "blob";
   xhr.send();
 };
-
-export const isSafari = () => {
-  var ua = navigator.userAgent.toLowerCase();
-  if (ua.indexOf("safari") != -1) {
-    if (ua.indexOf("chrome") > -1) {
-      return false;
-    }
-    return true;
-  }
-  return false;
-};

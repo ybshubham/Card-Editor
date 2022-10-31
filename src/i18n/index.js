@@ -1,12 +1,14 @@
 export default {
   "en-US": {
     productName: "Product Editor",
-    front: "front",
-    back: "back",
+    front: "Front",
+    back: "Back",
     colors: "Background Colors",
     shapes: "Shapes",
     layouts: "Card Designs",
-    preview: "Preview",
+    SelectA_front_Design: "Select a Front Design",
+    SelectA_back_Design: "Select a Back Design",
+    preview: "Review and Finalize",
     imgActionLabels: {
       selectImgText: "Select Image",
       selectCategoryText: "Select Category",
@@ -22,25 +24,37 @@ export default {
       upload: "Finalize",
       uploading: "Submitting",
       back: "Back",
-      proceed: "proceed",
+      proceed: "Proceed",
+      wait: "please wait",
     },
     getStartedText: {
       welcomeText: "",
-      step1: "Welcome! Your greeting card can be customized as follows...",
-      step2:
-        "Select a card design by clicking the 'Card Designs' option from within the left-side menu. If the left-side menu is hidden, click on the menu icon at the top of the page to view it.",
+      step1:
+        "Your card contains both a Front and a Back design. Each design must be selected and customized individually.",
+      step2: "Select your designs through the 'Card Designs' menu option.",
+      step2_mobile:
+        "Select your designs through the 'Card Designs' menu option.",
       step3:
-        "Drag and drop images from the bottom image bar onto the blank image areas within your selected design. If you are using a mobile device, tap within the empty image area to select an image instead.",
-      step4:
-        "Crop the selected image by clicking on the image within the design.",
+        "Drop images from the bottom image bar into the blank image areas to add them to your card.",
+      step3_mobile: "Tap within an empty image area to select an image.",
+      step4: "Crop the image by clicking on the image within the design.",
+      step4_mobile: "Crop the image by tapping on the image within the design.",
       step5:
         "Click on the text to modify it. Space is limited, so be as precise as possible.",
+      step5_mobile:
+        "Tap the text to modify it. Space is limited, so be as precise as possible.",
       step6:
-        "If the design contains a solid color for the background (rather than an image), the background color can be changed through the 'Background Colors' option found within the left-side menu.",
+        "Solid background colors can be modified through the 'Background Colors' menu option.",
+      step6_mobile:
+        "Solid background colors can be modified through the 'Background Colors' menu option.",
       step7:
-        "If your greeting card has two sides, click on the 'Front' and 'Back' options found at the top of the page to design each side individually.",
+        "Click the 'Front' and 'Back' options, found at the top of the page, to customize both sides of your card.",
+      step7_mobile:
+        "Tap the 'Front' and 'Back' options, found at the top of the page, to customize both sides of your card.",
       step8:
-        "Once your design is complete, click the 'Submit' button to save your card.",
+        "Once your design is complete, click the 'Submit' button to review and finalize your card.",
+      step8_mobile:
+        "Once your design is complete, tap the 'Submit' button to review and finalize your card.",
     },
     apiResponseText: {
       uploadSuccessText: "Upload Success",
@@ -59,6 +73,9 @@ export default {
         changeLabel: "Swap Images",
         changeContent: "Tap to Swap Images",
       },
+      loaderModal: {
+        content: "Please wait",
+      },
     },
     validationText: {
       cardValidationText: "Please add images to all the image containers.",
@@ -67,63 +84,83 @@ export default {
   de: {
     productName: "Produkt-Editor",
     front: "Vorderseite",
-    back: "der Rücken",
+    back: "Rückseite",
     colors: "Hintergrundfarben",
-    shapes: "Formen",
-    layouts: "Kartendesigns",
-    preview: "Vorschau",
+    shapes: "Gebilde",
+    layouts: "Grußkartenentwürfe",
+    SelectA_front_Design: "Wählen Sie ein Frontdesign",
+    SelectA_back_Design: "Wählen Sie ein Rückendesign",
+    preview: "Überprüfen und Finalisieren",
     imgActionLabels: {
       selectImgText: "Bild auswählen",
-      selectCategoryText: "Kategorie wählen",
-      uploadImgText: "Wählen Sie Foto aus",
-      dropImgText: "Foto ablegen",
+      selectCategoryText: "Kategorie auswählen",
+      uploadImgText: "Foto auswählen",
+      dropImgText: "Foto fallen lassen",
       editImgText: "Zuschneiden bearbeiten",
-      imgDragText: "Ziehen Sie das Bild auf den Kartendesigner.",
+      imgDragText: "Ziehen des Bilds auf den Kartendesigner.",
     },
     btnLabels: {
-      submit: "Einreichen",
+      submit: "Senden",
       cancel: "Abbrechen",
-      crop: "Ernte",
-      upload: "Abschließen",
-      uploading: "Einreichen",
-      back: "Der Rücken",
-      proceed: "verlaufen",
+      crop: "Zuschneiden",
+      upload: "Hochladen",
+      uploading: "Hochgeladen",
+      back: "Zurück",
+      proceed: "fortfahren",
+      wait: "Warten Sie mal",
     },
     getStartedText: {
       welcomeText: "",
       step1:
-        "Herzlich willkommen! Ihre Grußkarte kann wie folgt angepasst werden...",
+        "Jede Karte enthält sowohl ein Front- als auch ein Back-Design. Jedes Design muss individuell ausgewählt und angepasst werden.",
       step2:
-        "Wählen Sie ein Kartendesign aus, indem Sie im Menü auf der linken Seite auf die Option „Kartendesigns“ klicken. Wenn das Menü auf der linken Seite ausgeblendet ist, klicken Sie auf das Menüsymbol oben auf der Seite, um es anzuzeigen.",
+        'Wählen Sie ein Design über die Menüoption "Grußkartenentwürfe" aus.',
+      step2_mobile:
+        'Wählen Sie ein Kartendesign über die Menüoption "Grußkartenentwürfe" aus.',
       step3:
-        "Ziehen Sie Bilder aus der unteren Bildleiste per Drag-and-Drop auf die leeren Bildbereiche innerhalb Ihres ausgewählten Designs. Wenn Sie ein mobiles Gerät verwenden, tippen Sie in den leeren Bildbereich, um stattdessen ein Bild auszuwählen.",
+        "Legen Sie Bilder aus der unteren Bildleiste in die leeren Bildbereiche ab, um sie Ihrer Karte hinzuzufügen.",
+      step3_mobile:
+        "Tippen Sie in einen leeren Bildbereich, um ein Bild auszuwählen.",
       step4:
-        "Schneiden Sie das ausgewählte Bild zu, indem Sie auf das Bild innerhalb des Designs klicken.",
+        "Schneiden Sie das Bild zu, indem Sie auf das Bild im Design klicken.",
+      step4_mobile:
+        "Schneiden Sie das Bild zu, indem Sie auf das Bild im Design tippen.",
       step5:
-        "Klicken Sie auf den Text, um ihn zu ändern. Der Platz ist begrenzt, seien Sie also so genau wie möglich.",
+        "Klicken Sie auf den Text, um ihn zu ändern. Der Platz ist begrenzt, seien Sie also so präzise wie möglich.",
+      step5_mobile:
+        "Tippen Sie auf den Text, um ihn zu ändern. Der Platz ist begrenzt, seien Sie also so präzise wie möglich.",
       step6:
-        "Wenn das Design eine Volltonfarbe für den Hintergrund enthält (statt eines Bildes), kann die Hintergrundfarbe über die Option „Hintergrundfarben“ im Menü auf der linken Seite geändert werden.",
+        'Einfarbige Hintergrundfarben können über die Menüoption "Hintergrundfarben" geändert werden.',
+      step6_mobile:
+        'Einfarbige Hintergrundfarben können über die Menüoption "Hintergrundfarben" geändert werden.',
       step7:
-        "Wenn Ihre Grußkarte zwei Seiten hat, klicken Sie oben auf der Seite auf die Optionen „Vorderseite“ und „Rückseite“, um jede Seite individuell zu gestalten.",
+        'Klicken Sie auf die Optionen "Vorderseite" und "Rückseite", die Sie oben auf der Seite finden, um beide Seiten Ihrer Karte anzupassen.',
+      step7_mobile:
+        'Tippen Sie oben auf der Seite auf die Optionen "Vorderseite" und "Rückseite", um beide Seiten Ihrer Karte anzupassen..',
       step8:
-        "Sobald Ihr Design fertig ist, klicken Sie auf die Schaltfläche „Senden“, um Ihre Karte zu speichern.",
+        'Sobald Ihr Design fertig ist, klicken Sie auf die Schaltfläche "Senden", um Ihre Karte zu überprüfen und abzuschließen.',
+      step8_mobile:
+        'Sobald Ihr Design fertig ist, tippen Sie auf die Schaltfläche "Senden", um Ihre Karte zu überprüfen und abzuschließen.',
     },
     apiResponseText: {
-      uploadSuccessText: "Erfolgreich hochgeladen",
+      uploadSuccessText: "Erfolg beim Hochladen",
       uploadErrorText: "Upload fehlgeschlagen",
     },
     modalText: {
       confirmModal: {
-        title: "Bestätigen Sie die Übermittlung",
+        title: "Übermittlung bestätigen",
         content:
-          "Bitte überprüfen Sie noch einmal, ob Ihr Design genau Ihren Vorstellungen entspricht. Sobald Sie auf Weiter klicken, wird Ihre Karte gespeichert und Sie werden vom Editor weggeleitet.",
+          "Bitte überprüfen Sie, ob Ihr Design genau so ist, wie Sie es gerne hätten. Sobald Sie auf Weiter klicken, wird Ihre Karte gespeichert und Sie werden vom Editor weggeleitet.",
       },
       editChangeModal: {
         title: "Aktionen",
-        editLabel: "Ernte",
-        editContent: "Tippen Sie auf , um das Bild zuzuschneiden",
-        changeLabel: "Bilder tauschen",
-        changeContent: "Tippen Sie auf , um Bilder auszutauschen",
+        editLabel: "Zuschneiden",
+        editContent: "Tippen, um das Bild zuzuschneiden",
+        changeLabel: "Bilder austauschen",
+        changeContent: "Tippen, um Bilder auszutauschen",
+      },
+      loaderModal: {
+        content: "Bitte warten",
       },
     },
     validationText: {
@@ -131,66 +168,84 @@ export default {
         "Bitte fügen Sie Bilder zu allen Bildcontainern hinzu.",
     },
   },
-  "es-ES": {
-    productName: "Editor de productos",
-    front: "frente",
-    back: "espalda",
-    colors: "Colores de fondo",
-    shapes: "formas",
-    layouts: "Diseños de tarjetas",
-    preview: "Avance",
+  es: {
+    productName: "Editor de Productos",
+    front: "Frente",
+    back: " Reverso",
+    colors: "Colores de Fondo",
+    shapes: "Formas",
+    layouts: "Diseños de Tarjetas",
+    SelectA_front_Design: "Seleccionar diseño frontal",
+    SelectA_back_Design: "Seleccionar diseño de reverso",
+    preview: "Revisar y finalizar",
     imgActionLabels: {
       selectImgText: "Seleccionar imagen",
-      selectCategoryText: "selecciona una categoría",
-      uploadImgText: "Seleccione Foto",
+      selectCategoryText: "Seleccionar categoría",
+      uploadImgText: "Seleccionar foto",
       dropImgText: "Soltar foto",
-      editImgText: "Zuschneiden bearbeiten",
-      imgDragText: "Arrastre la imagen al diseñador de tarjetas.",
+      editImgText: "Editar recorte",
+      imgDragText: "Arrastra la imagen al diseñador de tarjetas.",
     },
     btnLabels: {
       submit: "Enviar",
-      cancel: "cancelar",
-      crop: "Cultivo",
+      cancel: "Cancelar",
+      crop: "Recortar",
       upload: "Finalizar",
-      uploading: "Sumisión",
-      back: "atrás",
+      uploading: "Enviando",
+      back: "Atrás",
       proceed: "Continuar",
+      wait: "espere por favor",
     },
     getStartedText: {
       welcomeText: "",
       step1:
-        "¡Bienvenidos! Su tarjeta de felicitación se puede personalizar de la siguiente manera...",
+        "Cada tarjeta contiene un diseño de anverso y reverso. Cada diseño debe seleccionarse y personalizarse individualmente.",
       step2:
-        "Seleccione un diseño de tarjeta haciendo clic en la opción 'Diseños de tarjeta' en el menú del lado izquierdo. Si el menú del lado izquierdo está oculto, haga clic en el ícono de menú en la parte superior de la página para verlo.",
+        "Seleccione un diseño a través de la opción de menú 'Diseños de tarjeta.",
+      step2_mobile:
+        'Seleccione un diseño de tarjeta a través de la opción de menú "Diseños de Tarjeta."',
       step3:
-        "Arrastre y suelte imágenes desde la barra de imágenes inferior a las áreas de imagen en blanco dentro de su diseño seleccionado. Si está utilizando un dispositivo móvil, toque dentro del área de imagen vacía para seleccionar una imagen en su lugar.",
-      step4:
-        "Recorta la imagen seleccionada haciendo clic en la imagen dentro del diseño.",
+        "Suelte imágenes de la barra de imágenes inferior en las áreas de imagen en blanco para agregarlas a su tarjeta.",
+      step3_mobile:
+        "Toque dentro de un área de imagen vacía para seleccionar una imagen.",
+      step4: "Recorta la imagen haciendo clic en la imagen dentro del diseño.",
+      step4_mobile: "Recorta la imagen tocando la imagen dentro del diseño.",
       step5:
-        "Haga clic en el texto para modificarlo. El espacio es limitado, así que sea lo más preciso posible.",
+        "Haz clic en el texto para modificarlo. El espacio es limitado, así que sé lo más preciso posible.",
+      step5_mobile:
+        "Toca el texto para modificarlo. El espacio es limitado, así que sé lo más preciso posible.",
       step6:
-        "Si el diseño contiene un color sólido para el fondo (en lugar de una imagen), el color de fondo se puede cambiar a través de la opción 'Colores de fondo' que se encuentra en el menú del lado izquierdo.",
+        'Los colores de fondo sólidos se pueden modificar mediante la opción de menú "Colores de Fondo."',
+      step6_mobile:
+        "Los colores de fondo sólidos se pueden modificar mediante la opción de menú.",
       step7:
-        "Si su tarjeta de felicitación tiene dos lados, haga clic en las opciones 'Anverso' y 'Reverso' que se encuentran en la parte superior de la página para diseñar cada lado individualmente.",
+        "Toque las opciones 'Frente' y 'Reverso' en la parte superior de la página para personalizar ambos lados de su tarjeta.",
+      step7_mobile:
+        "Toque las opciones 'Frente' y 'Reverso' en la parte superior de la página para personalizar ambos lados de su tarjeta.",
       step8:
-        "Una vez que su diseño esté completo, haga clic en el botón 'Enviar' para guardar su tarjeta.",
+        "Una vez que su diseño esté completo, haga clic en el botón 'Enviar' para revisar y finalizar su tarjeta.",
+      step8_mobile:
+        "Una vez que su diseño esté completo, toque el botón 'Enviar' para revisar y finalizar su tarjeta.",
     },
     apiResponseText: {
-      uploadSuccessText: "Subida exitosa",
-      uploadErrorText: "Subida fallida",
+      uploadSuccessText: "Carga exitosa",
+      uploadErrorText: "Carga fallida",
     },
     modalText: {
       confirmModal: {
-        title: "Confirmar envío",
+        title: "Confirmar",
         content:
-          "Vuelve a verificar que tu diseño sea exactamente como te gustaría que fuera. Una vez que haga clic en continuar, su tarjeta se guardará y será redirigido fuera del Editor.",
+          "Vuelve a verificar que tu diseño sea exactamente como te gustaría que fuera. Una vez que haga clic en continuar, su tarjeta se guardará y será redirigido fuera del editor.",
       },
       editChangeModal: {
-        title: "Comportamiento",
-        editLabel: "Cultivo",
-        editContent: "Toque para recortar la imagen",
+        title: "Acciones ",
+        editLabel: "Recortar ",
+        editContent: "Tocar para recortar la imagen",
         changeLabel: "Intercambiar imágenes",
         changeContent: "Toque para intercambiar imágenes",
+      },
+      loaderModal: {
+        content: "Por favor, espere",
       },
     },
     validationText: {
@@ -198,49 +253,64 @@ export default {
         "Agregue imágenes a todos los contenedores de imágenes.",
     },
   },
-  "fr-CA": {
+  fr: {
     productName: "Éditeur de produit",
-    front: "de face",
-    back: "retour",
-    colors: "Couleurs de fond",
+    front: "De face",
+    back: "Verso",
+    colors: "Couleurs d'arrière-plan",
     shapes: "Formes",
-    layouts: "Conceptions de cartes",
-    preview: "Aperçu",
+    layouts: "Modèles de cartes",
+    SelectA_front_Design: "Sélectionnez un design de façade",
+    SelectA_back_Design: "Sélectionnez un design de dos",
+    preview: "Revoir et finaliser",
     imgActionLabels: {
       selectImgText: "Sélectionner une image",
       selectCategoryText: "Choisir une catégorie",
-      uploadImgText: "Sélectionnez une photo",
-      dropImgText: "Déposez une photo",
+      uploadImgText: "Sélectionner photo",
+      dropImgText: "Déposez des photos",
       editImgText: "Modifier le recadrage",
-      imgDragText: "Faites glisser l'image sur le concepteur de cartes.",
+      imgDragText:
+        "Faites glisser l'image sur le concepteur de cartes de vœux.",
     },
     btnLabels: {
       submit: "Soumettre",
-      cancel: "annuler",
+      cancel: "Annuler",
       crop: "Recadrer",
       upload: "Finaliser",
-      uploading: "Soumission",
+      uploading: "Envoi",
       back: "Retour",
-      proceed: "procéder",
+      proceed: "Procéder",
+      wait: "S'il vous plaît, attendez",
     },
     getStartedText: {
       welcomeText: "",
       step1:
-        "Accueillir! Votre carte de voeux peut être personnalisée comme suit...",
-      step2:
-        "Sélectionnez un modèle de carte en cliquant sur l'option 'Modèles de carte' dans le menu de gauche. Si le menu de gauche est masqué, cliquez sur l'icône de menu en haut de la page pour l'afficher.",
+        "Chaque carte contient à la fois un recto et un verso. Le design de chaque côté doit être sélectionné et personnalisé individuellement.",
+      step2: "Sélectionnez un design via l'option de menu 'Modèles de cartes'.",
+      step2_mobile:
+        "Sélectionnez un design de carte via l'option de menu 'Modèles de cartes'.",
       step3:
-        "Faites glisser et déposez les images de la barre d'image inférieure sur les zones d'image vides dans votre conception sélectionnée. Si vous utilisez un appareil mobile, appuyez dans la zone d'image vide pour sélectionner une image à la place.",
-      step4:
-        "Recadrez l'image sélectionnée en cliquant sur l'image dans le dessin.",
+        "Déposez les images de la barre d'image inférieure dans les zones d'image vierges pour les ajouter à votre carte de vœux.",
+      step3_mobile:
+        "Appuyez dans une zone d'image vide pour sélectionner une image.",
+      step4: "Recadrez l'image en cliquant sur l'image dans le design.",
+      step4_mobile: "Recadrez l'image en appuyant sur l'image dans le design.",
       step5:
-        "Cliquez sur le texte pour le modifier. L'espace est limité, alors soyez aussi précis que possible.",
+        "Cliquez sur le texte pour le modifier. L'espace est limité, alors soyez le plus précis possible.",
+      step5_mobile:
+        "Appuyez sur le texte pour le modifier. L'espace est limité, alors soyez le plus précis possible.",
       step6:
-        "Si le dessin contient une couleur unie pour l'arrière-plan (plutôt qu'une image), la couleur d'arrière-plan peut être modifiée via l'option 'Couleurs d'arrière-plan' située dans le menu de gauche.",
+        "Les couleurs d'arrière-plan unies peuvent être modifiées via l'option de menu 'Couleurs d'arrière-plan'.",
+      step6_mobile:
+        "Les couleurs d'arrière-plan unies peuvent être modifiées via l'option de menu 'Couleurs d'arrière-plan'.",
       step7:
-        "Si votre carte de vœux a deux côtés, cliquez sur les options « Recto » et « Verso » situées en haut de la page pour concevoir chaque côté individuellement.",
+        "Cliquez sur les options 'De face' et 'Verso', situées en haut de la page, pour personnaliser les deux côtés de votre carte.",
+      step7_mobile:
+        "Appuyez sur les options 'De face' et 'Verso', situées en haut de la page, pour personnaliser les deux côtés de votre carte.",
       step8:
-        "Une fois votre conception terminée, cliquez sur le bouton 'Soumettre' pour enregistrer votre carte.",
+        "Une fois votre conception terminée, cliquez sur le bouton 'Soumettre' pour revoir et finaliser votre carte de vœux.",
+      step8_mobile:
+        "Une fois votre conception terminée, appuyez sur le bouton 'Soumettre' pour revoir et finaliser votre carte de vœux.",
     },
     apiResponseText: {
       uploadSuccessText: "Télécharger le succès",
@@ -250,14 +320,17 @@ export default {
       confirmModal: {
         title: "Confirmer la soumission",
         content:
-          "Veuillez vérifier que votre conception correspond exactement à ce que vous voudriez qu'elle soit. Une fois que vous aurez cliqué sur Continuer, votre carte sera enregistrée et vous serez redirigé hors de l'Éditeur.",
+          "Veuillez vérifier que votre conception correspond exactement à ce que vous voudriez qu'elle soit. Une fois que vous aurez cliqué sur Continuer, votre carte de vœux sera enregistrée et vous serez sorti de l'éditeur.",
       },
       editChangeModal: {
         title: "Actions",
         editLabel: "Recadrer",
         editContent: "Appuyez pour recadrer l'image",
-        changeLabel: "Échanger des images",
+        changeLabel: "Échanger les images",
         changeContent: "Appuyez pour échanger des images",
+      },
+      loaderModal: {
+        content: "Veuillez patienter",
       },
     },
     validationText: {
@@ -265,66 +338,84 @@ export default {
         "Veuillez ajouter des images à tous les conteneurs d'images.",
     },
   },
-  "it-IT": {
-    productName: "Editore del prodotto",
-    front: "davanti",
-    back: "Indietro",
+  it: {
+    productName: "Editor di prodotto",
+    front: "Fronte",
+    back: "Retro",
     colors: "Colori di sfondo",
-    shapes: "Forme",
-    layouts: "Disegni di carte",
-    preview: "Anteprima",
+    shapes: "Forma",
+    layouts: "Modelli di Carta",
+    SelectA_front_Design: "Scegli un design frontale",
+    SelectA_back_Design: "Scegli un design posteriore",
+    preview: "Revisione e finalizzazione",
     imgActionLabels: {
-      selectImgText: "Seleziona Immagine",
+      selectImgText: "Seleziona immagine",
       selectCategoryText: "Seleziona categoria",
-      uploadImgText: "Seleziona Foto",
-      dropImgText: "Rilascia foto",
-      editImgText: "Modifica ritaglio",
-      imgDragText: "Trascina l'immagine sul designer della carta.",
+      uploadImgText: "Seleziona foto",
+      dropImgText: "Aggiungi foto qui",
+      editImgText: "Ritagliare la foto",
+      imgDragText: "Trascina l'immagine nel designer delle carte.",
     },
     btnLabels: {
       submit: "Invia",
-      cancel: "Annulla",
-      crop: "Raccolto",
-      upload: "Finalizzare",
-      uploading: "Invio",
-      back: "Di ritorno",
-      proceed: "procedere",
+      cancel: "Abortire",
+      crop: "Ritagliare",
+      upload: "Invia",
+      uploading: "Uploading",
+      back: "Tornare",
+      proceed: "Continuare",
+      wait: "attendere prego",
     },
     getStartedText: {
       welcomeText: "",
       step1:
-        "Ben arrivato! Il tuo biglietto di auguri può essere personalizzato come segue...",
+        "Ogni carta contiene sia un design anteriore che posteriore. Ogni disegno deve essere selezionato e personalizzato individualmente.",
       step2:
-        "Seleziona un modello di carta facendo clic sull'opzione 'Modelli di carta' dal menu a sinistra. Se il menu a sinistra è nascosto, fai clic sull'icona del menu nella parte superiore della pagina per visualizzarlo.",
+        'Seleziona il tema di una carta dall\'opzione di menu "Modelli di carta".',
+      step2_mobile:
+        'Seleziona il tema di una carta dall\'opzione di menu "Modelli di carta".',
       step3:
-        "Trascina e rilascia le immagini dalla barra dell'immagine in basso sulle aree vuote dell'immagine all'interno del design selezionato. Se stai utilizzando un dispositivo mobile, tocca all'interno dell'area dell'immagine vuota per selezionare un'immagine.",
-      step4:
-        "Ritaglia l'immagine selezionata facendo clic sull'immagine all'interno del disegno.",
+        "Trascina le immagini dalla barra delle immagini inferiore per svuotare le aree all'interno della scheda.",
+      step3_mobile:
+        "Tocca un'area dell'immagine vuota all'interno della scheda per selezionare un'immagine.",
+      step4: "Ritaglia l'immagine facendo clic sull'immagine nel design.",
+      step4_mobile: "Ritaglia l'immagine toccando l'immagine nel tema.",
       step5:
         "Fare clic sul testo per modificarlo. Lo spazio è limitato, quindi sii il più preciso possibile.",
+      step5_mobile:
+        "Tocca il testo per modificarlo. Lo spazio è limitato, quindi sii il più preciso possibile.",
       step6:
-        "Se il disegno contiene un colore solido per lo sfondo (piuttosto che un'immagine), il colore di sfondo può essere modificato tramite l'opzione 'Colori di sfondo' che si trova nel menu a sinistra.",
+        "I colori di sfondo a tinta unita possono essere modificati utilizzando l'opzione di menu Colori di sfondo",
+      step6_mobile:
+        "I colori di sfondo a tinta unita possono essere modificati utilizzando l'opzione di menu Colori di sfondo.",
       step7:
-        "Se il tuo biglietto di auguri ha due lati, fai clic sulle opzioni 'Fronte' e 'Indietro' che si trovano nella parte superiore della pagina per progettare ogni lato individualmente.",
+        'Fai clic sulle opzioni "Fronte" e "Retro" che si trovano nella parte superiore della pagina per personalizzare entrambi i lati della tua carta.',
+      step7_mobile:
+        'Tocca "Fronte" e "Retro" nella parte superiore della pagina per personalizzare entrambi i lati del biglietto.',
       step8:
-        "Una volta completato il tuo design, fai clic sul pulsante 'Invia' per salvare la tua carta.",
+        'Una volta che il tuo design è pronto, fai clic sul pulsante "Invia" per rivedere e completare la tua carta.',
+      step8_mobile:
+        'Una volta che il tuo design è pronto, tocca il pulsante "Invia" per rivedere e completare la tua carta.',
     },
     apiResponseText: {
       uploadSuccessText: "Caricamento riuscito",
-      uploadErrorText: "Caricamento fallito",
+      uploadErrorText: "Caricamento non riuscito",
     },
     modalText: {
       confirmModal: {
         title: "Conferma invio",
         content:
-          "Per favore ricontrolla che il tuo design sia esattamente come vorresti che fosse. Dopo aver fatto clic su Procedi, la tua carta verrà salvata e verrai reindirizzato dall'Editor.",
+          "Verifica se il tuo design è esattamente come vorresti che fosse. Dopo aver fatto clic su Avanti, la carta verrà salvata e verrai reindirizzato dall'editor.",
       },
       editChangeModal: {
         title: "Azioni",
         editLabel: "Raccolto",
         editContent: "Tocca per ritagliare l'immagine",
-        changeLabel: "Scambia immagini",
-        changeContent: "Tocca per scambiare immagini",
+        changeLabel: "Cambiare le immagini",
+        changeContent: "Tocca per cambiare le immagini",
+      },
+      loaderModal: {
+        content: "Attendere prego",
       },
     },
     validationText: {
@@ -332,112 +423,146 @@ export default {
         "Aggiungi immagini a tutti i contenitori di immagini.",
     },
   },
-  "pt-BR": {
-    productName: "Editor de produto",
-    front: "frente",
-    back: "de volta",
-    colors: "Cores de fundo",
+  pt: {
+    productName: "Editor de Produto",
+    front: "Frente",
+    back: "Reverso",
+    colors: "Cores de Fundo",
     shapes: "Formas",
-    layouts: "Designs de cartão",
-    preview: "Visualizar",
+    layouts: "Designs de Cartão",
+    SelectA_front_Design: "Design para a frente",
+    SelectA_back_Design: "Design para o verso",
+    preview: "Rever e Finalizar",
     imgActionLabels: {
-      selectImgText: "Selecione a imagem",
-      selectCategoryText: "Selecione a Categoria",
-      uploadImgText: "Selecionar foto",
-      dropImgText: "Soltar foto",
-      editImgText: "Editar corte",
-      imgDragText: "Arraste a imagem para o designer de cartão.",
+      selectImgText: "Selecione imagem",
+      selectCategoryText: "Selecione Categoria",
+      uploadImgText: "Selecione Foto",
+      dropImgText: "Arrastar e Soltar Foto",
+      editImgText: "Editar a Imagem",
+      imgDragText: "Arraste a imagem para o designer de cartões.",
     },
     btnLabels: {
       submit: "Enviar",
-      cancel: "cancelar",
-      crop: "Colheita",
+      cancel: "Cancelar",
+      crop: "Cortar",
       upload: "Finalizar",
       uploading: "Enviando",
-      back: "De volta",
-      proceed: "Continuar",
+      back: "Voltar",
+      proceed: "Proceder",
+      wait: "por favor, aguarde",
     },
     getStartedText: {
       welcomeText: "",
       step1:
-        "Bem-vindo! Seu cartão pode ser personalizado da seguinte forma...",
+        "Cada cartão contém um design frontal e traseiro. Cada design deve ser selecionado e personalizado individualmente.",
       step2:
-        "Selecione um design de cartão clicando na opção 'Designs de cartão' no menu do lado esquerdo. Se o menu do lado esquerdo estiver oculto, clique no ícone do menu na parte superior da página para visualizá-lo.",
+        "Selecione um design de cartão através da opção de menu 'Desenhos de cartões'.",
+      step2_mobile:
+        "Selecione um design de cartão através da opção de menu 'Desenhos de cartões'.",
       step3:
-        "Arraste e solte imagens da barra de imagens inferior para as áreas de imagem em branco no design selecionado. Se você estiver usando um dispositivo móvel, toque na área de imagem vazia para selecionar uma imagem.",
-      step4: "Corte a imagem selecionada clicando na imagem dentro do design.",
+        "Solte as imagens da barra de imagens inferior nas áreas de imagem em branco para adicioná-las ao seu cartão.",
+      step3_mobile:
+        "Toque em uma área de imagem vazia para selecionar uma imagem.",
+      step4: "Corte a imagem clicando na imagem dentro do design.",
+      step4_mobile: "Corte a imagem tocando na imagem dentro do design.",
       step5:
         "Clique no texto para modificá-lo. O espaço é limitado, então seja o mais preciso possível.",
+      step5_mobile:
+        "Toque no texto para modificá-lo. O espaço é limitado, então seja o mais preciso possível.",
       step6:
-        "Se o design contiver uma cor sólida para o plano de fundo (em vez de uma imagem), a cor do plano de fundo pode ser alterada através da opção 'Cores de fundo' encontrada no menu do lado esquerdo.",
+        "As cores de fundo sólidas podem ser modificadas através da opção de menu 'Cores de fundo'.",
+      step6_mobile:
+        "As cores de fundo sólidas podem ser modificadas através da opção de menu 'Cores de fundo'.",
       step7:
-        "Se o seu cartão tiver dois lados, clique nas opções 'Frente' e 'Voltar' encontradas na parte superior da página para desenhar cada lado individualmente.",
+        "Clique nas opções 'Frente' e 'Reverso' encontradas na parte superior da página para personalizar os dois lados do seu cartão.",
+      step7_mobile:
+        "Toque nas opções 'Frente' e 'Reverso', encontradas no topo da página, para personalizar ambos os lados do seu cartão.",
       step8:
-        "Quando seu design estiver concluído, clique no botão 'Enviar' para salvar seu cartão.",
+        "Uma vez que o seu design esteja concluído, clique no botão 'Enviar' para rever e finalizar o seu cartão.",
+      step8_mobile:
+        "Uma vez que o seu design esteja concluído, toque no botão 'Enviar' para rever e finalizar o seu cartão.",
     },
     apiResponseText: {
-      uploadSuccessText: "Carregar sucesso",
-      uploadErrorText: "Falha ao carregar",
+      uploadSuccessText: "Enviada com sucesso",
+      uploadErrorText: "Falha ao enviar",
     },
     modalText: {
       confirmModal: {
-        title: "Confirmar envio",
+        title: "Confirmar submissão",
         content:
-          "Por favor, verifique se o seu design é exatamente como você gostaria que fosse. Depois de clicar em continuar, seu cartão será salvo e você será redirecionado para fora do Editor.",
+          "Por favor, verifique se o seu projeto é exatamente como você gostaria que fosse. Depois de clicar em continuar, seu cartão será salvo e você será redirecionado para fora do Editor.",
       },
       editChangeModal: {
-        title: "Ações",
-        editLabel: "Colheita",
-        editContent: "Toque para cortar a imagem",
+        title: "Opções",
+        editLabel: "Cortar",
+        editContent: "Toque em Cortar a Imagem",
         changeLabel: "Trocar imagens",
         changeContent: "Toque para trocar imagens",
       },
+      loaderModal: {
+        content: "Aguarde",
+      },
     },
     validationText: {
-      cardValidationText: "Adicione imagens a todos os contêineres de imagens.",
+      cardValidationText:
+        "Por favor, adicione imagens a todos os recipientes de imagem.",
     },
   },
-  "sv-SE": {
+  sv: {
     productName: "Produktredaktör",
-    front: "främre",
-    back: "tillbaka",
+    front: "Framsida",
+    back: "Baksidan",
     colors: "Bakgrundsfärger",
     shapes: "Former",
-    layouts: "Kortdesigner",
-    preview: "Förhandsvisning",
+    layouts: "Kortdesign",
+    SelectA_front_Design: "Välj en frontdesign",
+    SelectA_back_Design: "Välj en baksidan",
+    preview: "Granska och slutför",
     imgActionLabels: {
-      selectImgText: "Välj Bild",
+      selectImgText: "Välj bild",
       selectCategoryText: "Välj kategori",
-      uploadImgText: "Välj Foto",
+      uploadImgText: "Välj foto",
       dropImgText: "Släpp foto",
       editImgText: "Redigera beskärning",
       imgDragText: "Dra bilden till kortdesignern.",
     },
     btnLabels: {
-      submit: "Skicka in",
-      cancel: "Avbryt",
-      crop: "Beskära",
-      upload: "Avsluta",
-      uploading: "Skickar in",
-      back: "Tillbaka",
-      proceed: "Fortsätt",
+      submit: "Skicka",
+      cancel: "Annullera",
+      crop: "Beskär",
+      upload: "Slutföra",
+      uploading: "Skicka",
+      back: "Gå tillbaka",
+      proceed: "Fortsätta",
+      wait: "Vänta",
     },
     getStartedText: {
       welcomeText: "",
-      step1: "Välkommen! Ditt gratulationskort kan anpassas enligt följande...",
-      step2:
-        "Välj en kortdesign genom att klicka på alternativet 'Kortdesigner' från menyn till vänster. Om menyn till vänster är dold, klicka på menyikonen högst upp på sidan för att se den.",
+      step1:
+        "Varje kort innehåller både en fram- och en baksida. Varje design måste väljas och anpassas individuellt.",
+      step2: 'Välj en design via menyalternativet "Kortdesign".',
+      step2_mobile: 'Välj en kortdesign via menyalternativet "Kortdesign".',
       step3:
-        "Dra och släpp bilder från den nedre bildfältet till de tomma bildområdena i din valda design. Om du använder en mobil enhet, tryck i det tomma bildområdet för att välja en bild istället.",
-      step4: "Beskär den valda bilden genom att klicka på bilden i designen.",
+        "Släpp bilder från det nedre bildfältet till de tomma bildområdena för att lägga till dem på ditt kort.",
+      step3_mobile: "Tryck i ett tomt bildområde för att välja en bild.",
+      step4: "Beskär bilden genom att klicka på bilden i designen.",
+      step4_mobile: "Beskär bilden genom att trycka på bilden i designen.",
       step5:
         "Klicka på texten för att ändra den. Utrymmet är begränsat, så var så exakt som möjligt.",
+      step5_mobile:
+        "Tryck på texten för att ändra den. Utrymmet är begränsat, så var så exakt som möjligt.",
       step6:
-        "Om designen innehåller en solid färg för bakgrunden (snarare än en bild), kan bakgrundsfärgen ändras genom alternativet 'Bakgrundsfärger' som finns i menyn till vänster.",
+        'Solida bakgrundsfärger kan ändras genom menyalternativet "Bakgrundsfärger".',
+      step6_mobile:
+        'Solida bakgrundsfärger kan ändras genom menyalternativet "Bakgrundsfärger".',
       step7:
-        "Om ditt gratulationskort har två sidor, klicka på alternativen 'Framsida' och 'Baksida' längst upp på sidan för att designa varje sida individuellt.",
+        'Klicka på alternativen "Framsida" och "Baksidan", som finns högst upp på sidan, för att anpassa båda sidor av ditt kort.',
+      step7_mobile:
+        'Tryck på alternativen "Framsida" och "Baksidan", som finns högst upp på sidan, för att anpassa båda sidor av ditt kort.',
       step8:
-        "När din design är klar, klicka på knappen 'Skicka' för att spara ditt kort.",
+        'När din design är klar klickar du på knappen "Skicka" för att granska och slutföra ditt kort.',
+      step8_mobile:
+        'När din design är klar trycker du på knappen "Skicka" för att granska och slutföra ditt kort.',
     },
     apiResponseText: {
       uploadSuccessText: "Uppladdningen lyckades",
@@ -447,18 +572,191 @@ export default {
       confirmModal: {
         title: "Bekräfta inlämning",
         content:
-          "Vänligen dubbelkolla att din design är exakt som du vill att den ska vara. När du klickar på fortsätt kommer ditt kort att sparas och du omdirigeras bort från Editor.",
+          "Dubbelkolla att din design är precis som du vill att den ska vara. När du klickar på fortsätt sparas ditt kort och du omdirigeras bort från produktredigeraren.",
       },
       editChangeModal: {
         title: "Åtgärder",
-        editLabel: "Beskära",
+        editLabel: "Beskär",
         editContent: "Tryck för att beskära bilden",
         changeLabel: "Byt bilder",
         changeContent: "Tryck för att byta bilder",
       },
+      loaderModal: {
+        content: "Snälla vänta",
+      },
     },
     validationText: {
-      cardValidationText: "Lägg till bilder i alla bildbehållare.",
+      cardValidationText:
+        "Lägg till avbildningar i alla avbildningscontainrar.",
+    },
+  },
+  hu: {
+    productName: "Termékszerkesztő",
+    front: "Elülső",
+    back: "Hátoldal",
+    colors: "Háttérszínek",
+    shapes: "Alakzatok",
+    layouts: "Kártyatervek",
+    SelectA_front_Design: "Válasszon egy elülső kialakítást",
+    SelectA_back_Design: "Válasszon egy hátsó tervet",
+    preview: "Áttekintés és véglegesítés",
+    imgActionLabels: {
+      selectImgText: "Válassza a Kép lehetőséget",
+      selectCategoryText: "Válasszon kategóriát",
+      uploadImgText: "Válassza a Fotó lehetőséget",
+      dropImgText: "Húzza a fényképeket",
+      editImgText: "Szöveg szerkesztése",
+      imgDragText: "Húzza a képet a kártyatervezőre.",
+    },
+    btnLabels: {
+      submit: "Beküldés",
+      cancel: "érvénytelenít",
+      crop: "Vágja",
+      upload: "Véglegesítse",
+      uploading: "Benyújtása",
+      back: "Vissza",
+      proceed: "halad",
+      wait: "kérlek várj",
+    },
+    getStartedText: {
+      welcomeText: "",
+      step1:
+        "Minden kártya elülső és hátsó kialakítást is tartalmaz. Minden tervet egyedileg kell kiválasztani és testreszabni.",
+      step2: 'Válasszon ki egy tervet a "Kártyatervek" menüpontban.',
+      step2_mobile:
+        'Válasszon ki egy kártyatervet a "Kártyatervek" menüpontban.',
+      step3:
+        "Dobja a képeket az alsó képsávról az üres képterületekre, és adja hozzá őket a kártyához.",
+      step3_mobile:
+        "Koppintson egy üres képterületen belül egy kép kiválasztásához.",
+      step4: "Vágja le a képet a képen belül található képre kattintva.",
+      step4_mobile:
+        "Vágja le a képet úgy, hogy megérinti a képet a terven belül.",
+      step5:
+        "Kattintson a szövegre a módosításhoz. A hely korlátozott, ezért legyen a lehető legpontosabb.",
+      step5_mobile:
+        "Koppintson a szövegre a módosításához. A hely korlátozott, ezért legyen a lehető legpontosabb.",
+      step6:
+        'Az egyszínű háttérszínek a "Háttérszínek" menüponton keresztül módosíthatók.',
+      step6_mobile:
+        'Az egyszínű háttérszínek a "Háttérszínek" menüponton keresztül módosíthatók.',
+      step7:
+        'Kattintson az oldal tetején található "Elülső" és "Hátoldal" opciókra a kártya mindkét oldalának testreszabásához.',
+      step7_mobile:
+        'Koppintson az oldal tetején található "Elülső" és "Hátoldal" lehetőségekre a kártya mindkét oldalának testreszabásához.',
+      step8:
+        'Miután elkészült a formatervezési minta, kattintson a "Véglegesítse" gombra a kártya áttekintéséhez és véglegesítéséhez.',
+      step8_mobile:
+        'A formatervezési minta elkészülte után a "Véglegesítse" gombra koppintva ellenőrizheted és véglegesítheted a kártyádat.',
+    },
+    apiResponseText: {
+      uploadSuccessText: "Sikeres feltöltés",
+      uploadErrorText: "A feltöltés sikertelen",
+    },
+    modalText: {
+      confirmModal: {
+        title: "A beküldés megerősítése",
+        content:
+          "Kérjük, ellenőrizze még egyszer, hogy a dizájnja pontosan olyan-e, amilyennek szeretné. Miután rákattintott a folytatásra, a kártya mentésre kerül, és átirányítja a szerkesztőtől.",
+      },
+      editChangeModal: {
+        title: "Műveletek",
+        editLabel: "Vágja",
+        editContent: "Koppintson a kép körülvágásához",
+        changeLabel: "Képek cseréje",
+        changeContent: "Koppintson a képek cseréjéhez",
+      },
+      loaderModal: {
+        content: "Várj, kérlek",
+      },
+    },
+    validationText: {
+      cardValidationText:
+        "Kérjük, adjon hozzá képeket az összes képterülethez.",
+    },
+  },
+  ru: {
+    productName: "Редактор продуктов",
+    front: "Фронт",
+    back: "Назад",
+    colors: "Цвета фона",
+    shapes: "Формы",
+    layouts: "Дизайн карт",
+    SelectA_front_Design: "Выберите дизайн фасада",
+    SelectA_back_Design: "Выберите дизайн задней панели",
+    preview: "Обзор и завершение",
+    imgActionLabels: {
+      selectImgText: "Выберите изображение",
+      selectCategoryText: "Выберите категорию",
+      uploadImgText: "Выберите фотографию",
+      dropImgText: "перетащите фото",
+      editImgText: "Редактировать обрезку",
+      imgDragText: "Перетащите изображение на конструктор карточек.",
+    },
+    btnLabels: {
+      submit: "Отправить",
+      cancel: "Отмена",
+      crop: "Урожай",
+      upload: "Загрузить",
+      uploading: "Файл загружается",
+      back: "Вернись",
+      proceed: "продолжать",
+      wait: "пожалуйста, подождите",
+    },
+    getStartedText: {
+      welcomeText: "",
+      step1:
+        "Каждая карта содержит как передний, так и задний дизайн. Каждый дизайн должен быть выбран и настроен индивидуально.",
+      step2: "Выберите дизайн с помощью пункта меню «Дизайн открытки».",
+      step2_mobile:
+        "Выберите дизайн карты с помощью пункта меню «Дизайн открытки».",
+      step3:
+        "Перетащите изображения из нижней панели изображений в пустые области изображения, чтобы добавить их в карточку.",
+      step3_mobile:
+        "  Коснитесь пустой области изображения, чтобы выбрать изображение.",
+      step4: "Обрежьте изображение, нажав на изображение в дизайне .",
+      step4_mobile: "Обрежьте изображение, нажав на изображение в дизайне .",
+      step5:
+        "Нажмите на текст, чтобы изменить егo.  Пространство ограничено, поэтому будьте максимально точны.",
+      step5_mobile:
+        " Коснитесь текста, чтобы изменить его.  Пространство ограничено, поэтому будьте максимально точны.",
+      step6:
+        "Сплошные цвета фона можно изменить с помощью пункта меню «Цвета фона».",
+      step6_mobile:
+        "Сплошные цвета фона можно изменить с помощью пункта меню «Цвета фона».",
+      step7:
+        "Нажмите на опции «Передняя» и «Задняя» в верхней части страницы, чтобы настроить обе стороны вашей карты..",
+      step7_mobile:
+        "Нажмите на опции «Передняя» и «Задняя» в верхней части страницы, чтобы настроить обе стороны вашей карты..",
+      step8:
+        "Когда ваш дизайн будет готов, нажмите кнопку «Отправить», чтобы просмотреть и заполнить открытку.",
+      step8_mobile:
+        "Когда ваш дизайн будет готов, нажмите кнопку «Отправить», чтобы просмотреть и завершить открытку.",
+    },
+    apiResponseText: {
+      uploadSuccessText: " Загрузка успешна",
+      uploadErrorText: " Ошибка загрузки",
+    },
+    modalText: {
+      confirmModal: {
+        title: "Подтвердить отправку",
+        content:
+          "Пожалуйста, проверьте еще раз, чтобы ваш дизайн был именно таким, каким вы хотели бы его видеть. Как только вы нажмете «Продолжить», ваша карточка будет сохранена, и вы будете перенаправлены из редактора.",
+      },
+      editChangeModal: {
+        title: "Действия",
+        editLabel: "Урожай",
+        editContent: "Нажмите , чтобы обрезать изображение",
+        changeLabel: "Замена изображений",
+        changeContent: "Нажмите, чтобы поменять местами изображения",
+      },
+      loaderModal: {
+        content: "Пожалуйста, подождите",
+      },
+    },
+    validationText: {
+      cardValidationText:
+        "Пожалуйста, добавьте изображения во все контейнеры изображений.",
     },
   },
 };
